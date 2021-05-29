@@ -1,11 +1,12 @@
-<h1><%= @restaurant.name %></h1>
+<div class="row align-items-center">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= link_to 'New Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary ml-4', style: 'position: absolute; top: 85px; left: 380px' %></p>
+</div>
 <%= @restaurant.category.capitalize %>
 <p><%= @restaurant.address %> | <%= @restaurant.phone_number %></p>
 
-<ul>
+<ul class="border-top pt-4">
   <% @restaurant.reviews.each do |review| %>
-    <li>(<%= review.rating %>) <%= review.content %></li>
+    <p><%= review.rating %><i class="fas fa-star" , style="color: #FDCC0D;"></i> <%= review.content %></p>
   <% end %>
 </ul>
-
-<%= link_to 'New Review', new_restaurant_review_path(@restaurant) %>
